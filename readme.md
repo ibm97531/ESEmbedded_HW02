@@ -61,7 +61,7 @@ Please take your note here.
 HW02
 ===
 
-##project
+## project
 1. Please modify main.s to observe the `push` and the `pop` instructions:  
 
 	Does the order of the registers in the `push` and the `pop` instructions affect the excution results?  
@@ -78,7 +78,7 @@ HW02
 
 4. Push your repo to your github. (Use .gitignore to exclude the output files like object files or executable files and the qemu bin folder)
 
-##process
+## process
 
 1. Modify the code as below:
 
@@ -113,6 +113,7 @@ main.s:42: Warning: register range not in ascending order
 
 ```
 3. Compilier will rearrange the order of registers automatically from the lower number to higher one.
-##result
+
+## result
 
 1. There is an description in the datasheet:"The registers are stored in sequence, the lowest-numbered register to the lowest memory address, through to the highest-numbered register to the highest memory address.
