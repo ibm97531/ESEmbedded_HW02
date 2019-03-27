@@ -61,7 +61,7 @@ Please take your note here.
 HW02
 ===
 
-###project
+##project
 1. Please modify main.s to observe the `push` and the `pop` instructions:  
 
 	Does the order of the registers in the `push` and the `pop` instructions affect the excution results?  
@@ -78,8 +78,10 @@ HW02
 
 4. Push your repo to your github. (Use .gitignore to exclude the output files like object files or executable files and the qemu bin folder)
 
-###process
-Modify the code as below:
+##process
+
+1. Modify the code as below:
+
 ```
  
         @push
@@ -94,7 +96,15 @@ Modify the code as below:
         pop     {r6,r4,r7,r5}
         pop     {r3}
 ```
-After "make" command
+2. After "make" command
+show
+```
+main.s: Assembler messages:
+main.s:36: Warning: register range not in ascending order
+main.s:42: Warning: register range not in ascending order
+main.s:42: Warning: register range not in ascending order
+```
+3. By qemu I can see the code as below
 ```
   20:	b401      	push	{r0}
   22:	b41e      	push	{r1, r2, r3, r4}
@@ -102,6 +112,7 @@ After "make" command
   26:	bc08      	pop	{r3}
 
 ```
-###result
-Compilier will rearrange the order of registers automatically from the lower number to higher one.
-There is an description in the datasheet:"The registers are stored in sequence, the lowest-numbered register to the lowest memory address, through to the highest-numbered register to the highest memory address.
+3. Compilier will rearrange the order of registers automatically from the lower number to higher one.
+##result
+
+1. There is an description in the datasheet:"The registers are stored in sequence, the lowest-numbered register to the lowest memory address, through to the highest-numbered register to the highest memory address.
