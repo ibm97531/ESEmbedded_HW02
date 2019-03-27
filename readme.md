@@ -56,3 +56,52 @@ This is the hw02 sample. Please follow the steps below.
 --------------------
 
 Please take your note here.
+
+--------------------
+HW02
+===
+
+###project
+1. Please modify main.s to observe the `push` and the `pop` instructions:  
+
+	Does the order of the registers in the `push` and the `pop` instructions affect the excution results?  
+
+	For example, will `push {r0, r1, r2}` and `push {r2, r0, r1}` act in the same way?  
+
+	Which register will be pushed into the stack first?
+
+2. You have to state how you designed the observation (code), and how you performed it.  
+
+	Just like how [ESEmbedded_HW02_Example] did.
+
+3. If there are any official data that define the rules, you can also use them as references.
+
+4. Push your repo to your github. (Use .gitignore to exclude the output files like object files or executable files and the qemu bin folder)
+
+###process
+Modify the code as below:
+```
+ 
+        @push
+        @
+        push    {r0}
+        push    {r2, r4, r1, r3}
+
+
+        @
+        @pop
+        @
+        pop     {r6,r4,r7,r5}
+        pop     {r3}
+```
+After "make" command
+```
+  20:	b401      	push	{r0}
+  22:	b41e      	push	{r1, r2, r3, r4}
+  24:	bcf0      	pop	{r4, r5, r6, r7}
+  26:	bc08      	pop	{r3}
+
+```
+###result
+Compilier will rearrange the order of registers automatically from the lower number to higher one.
+There is an description in the datasheet:"The registers are stored in sequence, the lowest-numbered register to the lowest memory address, through to the highest-numbered register to the highest memory address.
